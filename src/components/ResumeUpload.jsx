@@ -81,14 +81,13 @@ export default function ResumeUpload({ onStartProcessing, isProcessing, processS
       <div className="hero-section">
         <div className="hero-badge">
           <Sparkles className="icon-xs" />
-          <span>Next-Gen Reactive Technical Interview</span>
+          <span>Personalized interview experience</span>
         </div>
         <h1 className="hero-title">
-          Autonomous AI Technical Interviewer
+Turn your resume into your next opportunity
         </h1>
         <p className="hero-desc">
-          Upload your resume in <strong>PDF format</strong>. Our two microservices will strip your technical skills via 
-          Apache PDFBox (<span className="text-accent">Port 9090</span>) and dynamically conduct a real-time reactive screening interview (<span className="text-secondary">Port 9091</span>) with Spring AI chat memory.
+          Upload your resume and have a thoughtful, real-time interview tailored to your experience. Get helpful questions, share your ideas, and show what makes you a great fit.
         </p>
       </div>
 
@@ -116,13 +115,13 @@ export default function ResumeUpload({ onStartProcessing, isProcessing, processS
               <div className="upload-icon-circle">
                 <FileUp className="upload-icon" />
               </div>
-              <h3 className="dropzone-title">Upload Candidate Resume (PDF Only)</h3>
+              <h3 className="dropzone-title">Share your resume</h3>
               <p className="dropzone-subtitle">
-                Drag and drop your resume PDF here, or <span className="highlight-link">browse files</span>
+                Drop your PDF here, or <span className="highlight-link">browse your files</span>
               </p>
               <div className="dropzone-specs">
                 <span className="spec-badge">
-                  <ShieldCheck className="icon-xs" /> PDF Documents Only
+                  <ShieldCheck className="icon-xs" /> Private and secure
                 </span>
                 <span className="spec-badge">Max 15MB</span>
               </div>
@@ -177,21 +176,21 @@ export default function ResumeUpload({ onStartProcessing, isProcessing, processS
           <div className="processing-pipeline">
             <div className="pipeline-header">
               <div className="pipeline-spinner" />
-              <span className="pipeline-title">{processStage || 'Initializing reactive interview stream...'}</span>
+              <span className="pipeline-title">{processStage || 'Getting your interview ready...'}</span>
             </div>
             
             <div className="pipeline-steps">
               <div className={`step-item ${processStage.includes('Stripping') ? 'active' : 'completed'}`}>
                 <span className="step-num">1</span>
-                <span>ResumeTextStriper (9090)</span>
+                <span>Reading your story</span>
               </div>
               <div className={`step-item ${processStage.includes('QuestionMaker') || processStage.includes('Starting') ? 'active' : (processStage.includes('Stripping') ? 'pending' : 'completed')}`}>
                 <span className="step-num">2</span>
-                <span>QuestionMaker (9091)</span>
+                <span>Finding your strengths</span>
               </div>
               <div className={`step-item ${processStage.includes('Streaming') ? 'active' : 'pending'}`}>
                 <span className="step-num">3</span>
-                <span>Reactive Stream</span>
+                <span>Opening conversation</span>
               </div>
             </div>
           </div>
@@ -211,7 +210,7 @@ export default function ResumeUpload({ onStartProcessing, isProcessing, processS
               </>
             ) : (
               <>
-                <span>Start Technical Screening</span>
+                <span>Begin your interview</span>
                 <ArrowRight className="icon-sm ml-2" />
               </>
             )}
@@ -225,8 +224,8 @@ export default function ResumeUpload({ onStartProcessing, isProcessing, processS
               <Layers className="icon-sm text-cyan" />
             </div>
             <div className="feature-content">
-              <h4>Reactive SSE Stream</h4>
-              <p>Real-time token streaming with zero latency buffering.</p>
+              <h4>Natural conversation</h4>
+              <p>Questions arrive in real time and respond to your answers.</p>
             </div>
           </div>
 
@@ -235,8 +234,8 @@ export default function ResumeUpload({ onStartProcessing, isProcessing, processS
               <Cpu className="icon-sm text-violet" />
             </div>
             <div className="feature-content">
-              <h4>10-Turn Context Window</h4>
-              <p>Spring AI MessageWindowChatMemory manages conversational context.</p>
+              <h4>Made for your story</h4>
+              <p>Your experience guides a focused, relevant interview.</p>
             </div>
           </div>
 
@@ -245,8 +244,8 @@ export default function ResumeUpload({ onStartProcessing, isProcessing, processS
               <Code className="icon-sm text-emerald" />
             </div>
             <div className="feature-content">
-              <h4>Apache PDFBox Extraction</h4>
-              <p>High-fidelity text stripping delivered directly to QuestionMaker.</p>
+              <h4>Simple and focused</h4>
+              <p>Spend less time on setup and more time showing your strengths.</p>
             </div>
           </div>
         </div>

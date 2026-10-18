@@ -1,9 +1,7 @@
 import React from 'react';
-import { Bot, Sparkles, Volume2, VolumeX, Settings, Activity, CheckCircle2, AlertCircle, RefreshCw } from 'lucide-react';
+import { Bot, Volume2, VolumeX, Settings } from 'lucide-react';
 
 export default function Navbar({ 
-  serviceStatus, 
-  onRefreshHealth, 
   onOpenSettings, 
   audioEnabled, 
   onToggleAudio,
@@ -22,35 +20,10 @@ export default function Navbar({
           <div className="brand-text">
             <div className="brand-title-row">
               <span className="brand-title">HireGen</span>
-              <span className="brand-badge">AI Interviewer</span>
+              <span className="brand-badge">Interview studio</span>
             </div>
-            <span className="brand-subtitle">Reactive Spring WebFlux + Gemini Screening</span>
+            <span className="brand-subtitle">A calmer way to prepare for what&apos;s next</span>
           </div>
-        </div>
-
-        {/* Center / Status */}
-        <div className="nav-status-group">
-          {/* Stripper Service Status */}
-          <div className={`status-pill ${serviceStatus.stripper.alive ? 'online' : 'offline'}`} title={`ResumeTextStriper at ${serviceStatus.stripper.url}`}>
-            <span className="status-dot" />
-            <span className="status-label">Port 9090 (Stripper):</span>
-            <span className="status-val">{serviceStatus.stripper.alive ? 'Active' : 'Offline'}</span>
-          </div>
-
-          {/* QuestionMaker Service Status */}
-          <div className={`status-pill ${serviceStatus.interviewer.alive ? 'online' : 'offline'}`} title={`QuestionMaker at ${serviceStatus.interviewer.url}`}>
-            <span className="status-dot" />
-            <span className="status-label">Port 9091 (Interviewer):</span>
-            <span className="status-val">{serviceStatus.interviewer.alive ? 'Active' : 'Offline'}</span>
-          </div>
-
-          <button 
-            className="btn-icon" 
-            onClick={onRefreshHealth} 
-            title="Refresh Service Status"
-          >
-            <RefreshCw className="icon-sm" />
-          </button>
         </div>
 
         {/* Right Actions */}
@@ -69,7 +42,7 @@ export default function Navbar({
           <button 
             className="btn-icon" 
             onClick={onOpenSettings}
-            title="Backend Connection Settings"
+            title="Settings"
           >
             <Settings className="icon-sm" />
           </button>

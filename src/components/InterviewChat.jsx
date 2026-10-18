@@ -241,15 +241,14 @@ export default function InterviewChat({
       <div className="chat-header">
         <div className="header-left">
           <div className="conversation-pill" onClick={copyConversationId} title="Click to copy Conversation ID">
-            <Hash className="icon-xs text-accent" />
-            <span className="conv-id-label">ID:</span>
-            <span className="conv-id-value">{conversationId}</span>
+            <Sparkles className="icon-xs text-accent" />
+            <span className="conv-id-label">Your session</span>
             {copiedId ? <Check className="icon-xs text-success ml-1" /> : <Copy className="icon-xs text-muted ml-1" />}
           </div>
 
-          <div className="memory-badge" title="Spring AI MessageWindowChatMemory maintains 10 latest messages">
+          <div className="memory-badge">
             <Brain className="icon-xs text-violet" />
-            <span>Memory: 10 turns</span>
+            <span>Personalized</span>
           </div>
 
           <div className="timer-badge">
@@ -258,7 +257,7 @@ export default function InterviewChat({
           </div>
 
           <div className="turn-badge">
-            <span>Turn {questionCount}</span>
+            <span>Question {questionCount}</span>
           </div>
         </div>
 
@@ -304,7 +303,7 @@ export default function InterviewChat({
 
               <div className="message-bubble-wrapper">
                 <div className="message-header-meta">
-                  <span className="sender-name">{isAi ? 'AI Technical Interviewer' : 'You (Candidate)'}</span>
+                  <span className="sender-name">{isAi ? 'HireGen Coach' : 'You'}</span>
                   <span className="message-time">{msg.timestamp}</span>
                 </div>
 
@@ -345,9 +344,9 @@ export default function InterviewChat({
 
             <div className="message-bubble-wrapper">
               <div className="message-header-meta">
-                <span className="sender-name">AI Technical Interviewer</span>
-                <span className="streaming-badge">
-                  <span className="stream-dot" /> Streaming reactively
+                <span className="sender-name">HireGen Coach</span>
+                  <span className="streaming-badge">
+                  <span className="stream-dot" /> Thinking
                 </span>
               </div>
 
@@ -389,7 +388,7 @@ export default function InterviewChat({
             value={inputText}
             onChange={handleTextareaInput}
             onKeyDown={handleKeyDown}
-            placeholder={isStreaming ? "Interviewer is responding..." : "Type your technical answer here (Enter to send, Shift+Enter for new line)..."}
+            placeholder={isStreaming ? "Interviewer is responding..." : "Share your answer here (Enter to send, Shift+Enter for a new line)..."}
             disabled={isStreaming}
             className="chat-textarea"
           />
@@ -421,7 +420,7 @@ export default function InterviewChat({
         
         <div className="input-footer">
           <span className="footer-tip">
-            Context window: Last 10 turns preserved Ã¢â‚¬Â¢ Reactive SSE streaming from QuestionMaker (9091)
+            Your conversation is private and updates in real time
           </span>
           <span className="char-count">{inputText.length} chars</span>
         </div>
