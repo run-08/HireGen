@@ -1578,3 +1578,139 @@ input:checked + .slider:before {
   background: #141c2e;
   color: #f8fafc;
 }
+
+/* Final visual pass: calm dark canvas, reliable page scrolling, and intentional motion. */
+:root {
+  --bg-dark: #0b1020;
+  --bg-surface: #111a2e;
+  --bg-surface-elevated: #17233b;
+  --bg-surface-glass: rgba(17, 26, 46, 0.82);
+  --bg-glass-card: rgba(23, 35, 59, 0.78);
+  --border-subtle: rgba(148, 163, 184, 0.16);
+  --text-main: #f4f7fb;
+  --text-secondary: #b7c4d8;
+  --text-muted: #8292aa;
+  --shadow-sm: 0 4px 14px rgba(2, 6, 23, 0.24);
+  --shadow-md: 0 20px 55px rgba(2, 6, 23, 0.34);
+}
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-dark);
+}
+
+.app-root {
+  min-height: 100vh;
+  height: auto;
+  max-height: none;
+  overflow-x: hidden;
+  overflow-y: visible;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(56, 189, 248, 0.16), transparent 30%),
+    radial-gradient(circle at 92% 22%, rgba(124, 58, 237, 0.2), transparent 28%),
+    linear-gradient(145deg, #0b1020 0%, #101a31 52%, #0c1529 100%);
+}
+
+.bg-glow {
+  opacity: 0.28;
+  mix-blend-mode: screen;
+}
+
+.bg-grid-overlay {
+  opacity: 0.32;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.045) 1px, transparent 1px);
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
+}
+
+.main-content {
+  flex: 0 0 auto;
+  min-height: calc(100vh - 72px);
+  overflow: visible;
+  padding-bottom: 3rem;
+}
+
+.brand-title,
+.hero-title {
+  background: linear-gradient(110deg, #f8fbff 8%, #c4b5fd 56%, #67e8f9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-desc,
+.dropzone-subtitle,
+.feature-content p {
+  color: #b9c7da;
+}
+
+.upload-card,
+.chat-layout {
+  border-color: rgba(148, 163, 184, 0.2);
+  background: linear-gradient(145deg, rgba(20, 31, 54, 0.9), rgba(13, 22, 41, 0.84));
+}
+
+.dropzone {
+  background: rgba(30, 43, 70, 0.55);
+}
+
+.upload-wrapper {
+  margin: clamp(2rem, 8vh, 5.5rem) 0 2rem;
+  animation: pageEnter 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-badge,
+.upload-card,
+.chat-layout {
+  animation: riseIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.upload-card { animation-delay: 0.08s; }
+
+.feature-item {
+  animation: riseIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.feature-item:nth-child(2) { animation-delay: 0.1s; }
+.feature-item:nth-child(3) { animation-delay: 0.2s; }
+
+.dropzone {
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth), background var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.dropzone:hover {
+  transform: translateY(-3px);
+}
+
+.btn-primary {
+  background: linear-gradient(110deg, #6366f1, #8b5cf6 48%, #06b6d4);
+  background-size: 200% 100%;
+  animation: buttonShimmer 5s ease-in-out infinite;
+}
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes buttonShimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@media (max-width: 768px) {
+  .main-content { min-height: calc(100vh - 64px); padding-bottom: 2rem; }
+  .upload-wrapper { margin-top: 1.5rem; }
+  .hero-title { font-size: clamp(2rem, 10vw, 2.7rem); }
+  .hero-desc { max-width: 35rem; margin-inline: auto; }
+}
