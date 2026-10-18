@@ -346,8 +346,8 @@ export default function InterviewChat({
             <div className="message-bubble-wrapper">
               <div className="message-header-meta">
                 <span className="sender-name">AI Technical Interviewer</span>
-                <span className="streaming-badge">
-                  <span className="stream-dot" /> Streaming reactively
+                  <span className="streaming-badge">
+                  <span className="stream-dot" /> Thinking
                 </span>
               </div>
 
@@ -421,7 +421,7 @@ export default function InterviewChat({
         
         <div className="input-footer">
           <span className="footer-tip">
-            Context window: Last 10 turns preserved Ã¢â‚¬Â¢ Reactive SSE streaming from QuestionMaker (9091)
+            Your conversation is private and updates in real time
           </span>
           <span className="char-count">{inputText.length} chars</span>
         </div>

@@ -71,18 +71,18 @@ export default function App() {
     refreshHealth(newConfig);
   };
 
-  // Pipeline: 1. Upload PDF -> ResumeTextStriper -> 2. Pass text -> QuestionMaker -> 3. Stream initial question
+  // Prepare the resume and start a personalized interview.
   const handleStartProcessing = async (pdfFile) => {
     setIsProcessing(true);
     setErrorMessage('');
-    setProcessStage('1/3 Uploading PDF to ResumeTextStriper (Port 9090)...');
+    setProcessStage('Reading your resume...');
 
     try {
       // Step 1: Strip text from PDF
       const extractedText = await uploadResumePdf(pdfFile, config);
       setResumeText(extractedText);
 
-      setProcessStage('2/3 Extracted text with Apache PDFBox. Calling QuestionMaker (Port 9091)...');
+      setProcessStage('Preparing your personalized questions...');
 
       // Step 2: Start interview with QuestionMaker
       let accumulatedStream = '';
@@ -211,8 +211,6 @@ export default function App() {
 
       {/* Main Top Navigation */}
       <Navbar 
-        serviceStatus={serviceStatus}
-        onRefreshHealth={refreshHealth}
         onOpenSettings={() => setIsSettingsModalOpen(true)}
         audioEnabled={audioEnabled}
         onToggleAudio={() => setAudioEnabled(!audioEnabled)}
