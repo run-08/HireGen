@@ -176,21 +176,21 @@ Turn your resume into your next opportunity
           <div className="processing-pipeline">
             <div className="pipeline-header">
               <div className="pipeline-spinner" />
-              <span className="pipeline-title">{processStage || 'Initializing reactive interview stream...'}</span>
+              <span className="pipeline-title">{processStage || 'Getting your interview ready...'}</span>
             </div>
             
             <div className="pipeline-steps">
               <div className={`step-item ${processStage.includes('Stripping') ? 'active' : 'completed'}`}>
                 <span className="step-num">1</span>
-                <span>Reading resume</span>
+                <span>Reading your story</span>
               </div>
               <div className={`step-item ${processStage.includes('QuestionMaker') || processStage.includes('Starting') ? 'active' : (processStage.includes('Stripping') ? 'pending' : 'completed')}`}>
                 <span className="step-num">2</span>
-                <span>Personalizing questions</span>
+                <span>Finding your strengths</span>
               </div>
               <div className={`step-item ${processStage.includes('Streaming') ? 'active' : 'pending'}`}>
                 <span className="step-num">3</span>
-                <span>Starting interview</span>
+                <span>Opening conversation</span>
               </div>
             </div>
           </div>
